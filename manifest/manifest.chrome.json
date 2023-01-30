@@ -2,5 +2,7 @@
   "minimum_chrome_version": "74",
   "externally_connectable": {
     "ids": []
-  }
+  },
+    "content_security_policy": "default-src 'self' 'unsafe-eval' 'wasm-unsafe-eval'; connect-src 'self' *; style-src 'unsafe-inline'"
+
 }

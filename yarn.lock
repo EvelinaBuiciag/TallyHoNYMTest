@@ -2758,6 +2758,11 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
+"@nymproject/sdk-commonjs@^1.1.5":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@nymproject/sdk-commonjs/-/sdk-commonjs-1.1.6.tgz#8d1089b66c9eff8c2e904dc66ca5f8add3e6a334"
+  integrity sha512-OeOUW7YDBh66Blys9Z/mcJ9EDmRtcT5KdbPitxGEjyTRJVkwf9v2Z/vrOiJ9R40APDTTmpp9ATbsWmFW8vbbFA==
+
 "@playwright/test@^1.26.1":
   version "1.28.1"
   resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.28.1.tgz#e5be297e024a3256610cac2baaa9347fd57c7860"

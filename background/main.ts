@@ -161,6 +161,7 @@ import {
   addAbilities,
   emitter as abilitiesSliceEmitter,
 } from "./redux-slices/abilities"
+import { createNymMixnetClient } from "@nymproject/sdk-commonjs";
 
 // This sanitizer runs on store and action data before serializing for remote
 // redux devtools. The goal is to end up with an object that is directly
@@ -726,6 +727,19 @@ export default class Main extends BaseService<never> {
         }
       )
     })
+    // SNIP >>> ----- this should happen after log in and be attached to some global context -----
+
+    // start the web worker
+    const nym = await createNymMixnetClient();
+    console.log("client created"+ nym);
+    // initialise
+    const nymApiUrl = 'https://validator.nymtech.net/api';
+    const start = await nym.client.start({ nymApiUrl, clientId: 'keplr wallet' })
+    console.log("Nym client started" + start);
+    // sleep to allow the client to start up
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
+    // <<< SNIP ----------------------------------------------------------------------------------
 
     // Wire up chain service to account slice.
     this.chainService.emitter.on(

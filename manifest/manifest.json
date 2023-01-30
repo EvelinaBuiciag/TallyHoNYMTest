@@ -1,7 +1,7 @@
 {
-  "name": "Tally Ho",
+  "name": "Tally Ho NYM TEST",
   "version": "0.20.0",
-  "description": "The community owned and operated Web3 wallet.",
+  "description": "The community owned and operated Web3 wallet with NYM integrated test.",
   "homepage_url": "https://tally.cash",
   "author": "https://tally.cash",
   "manifest_version": 2,
