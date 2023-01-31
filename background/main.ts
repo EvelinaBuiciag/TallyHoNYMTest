@@ -159,6 +159,7 @@ import {
 import AbilitiesService from "./services/abilities"
 import {
   addAbilities,
+  addAccount,
   emitter as abilitiesSliceEmitter,
 } from "./redux-slices/abilities"
 import { createNymMixnetClient } from "@nymproject/sdk-commonjs";
@@ -309,7 +310,8 @@ export default class Main extends BaseService<never> {
       ? WalletConnectService.create(
           providerBridgeService,
           internalEthereumProviderService,
-          preferenceService
+          preferenceService,
+          chainService
         )
       : getNoopService<WalletConnectService>()
 
@@ -1533,6 +1535,9 @@ export default class Main extends BaseService<never> {
   connectAbilitiesService(): void {
     this.abilitiesService.emitter.on("newAbilities", async (newAbilities) => {
       this.store.dispatch(addAbilities(newAbilities))
+    })
+    this.abilitiesService.emitter.on("newAccount", async (address) => {
+      this.store.dispatch(addAccount(address))
     })
     abilitiesSliceEmitter.on(
       "reportSpam",
